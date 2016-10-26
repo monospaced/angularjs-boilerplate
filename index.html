@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="/shared/assets/styles/build.css?v=071016">
+</head>
+<body ng-class="[{'is-loading': isLoading}, viewName]">
+  <div error ng-if="isError" class="Error" ng-class="{'is-error': isError}"></div>
+  <div ui-view="banner" role="banner" class="Banner"></div>
+  <div ui-view="main" role="main" class="Main"></div>
+  <div ui-view="footer" role="contentinfo" class="Footer"></div>
+  <div loading ng-if="isLoading" class="Loading"></div>
+  <script src="/shared/assets/scripts/build.js?v=071016"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.is-loading [role="main"] {
+  display: none;
+}
+
+.is-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.Loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.Loading-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40px 0 0 -100px;
+  width: 200px;
+  height: 80px;
+  color: lighten(black, 30);
+  text-align: center;
+  font-size: 30px;
+  line-height: 40px;
+  opacity: 0.25;
+  animation: a-huge-ever-growing-pulsating-brain-that-rules-from-the-centre-of-the-ultraworld;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}

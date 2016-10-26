@@ -1,0 +1,445 @@
+/** @define Arrange; weak */
+
+/**
+ * This component lets you lay out a row of cells in various ways. You can
+ * specify whether a cell should be wide enough to fit its content, or take up
+ * the remaining space in the row. It's also possible to give all cells an
+ * equal width, and to control their vertical alignment.
+ */
+
+/**
+ * 1. Protect against the component expanding beyond the confines of its
+ *    container if properties affecting the box-model are applied to the
+ *    component. Mainly necessary because of (5).
+ * 2. Rely on table layout.
+ * 3. Zero out the default spacing that might be on an element (e.g., `ul`).
+ * 4. Make sure the component fills at least the full width of its parent.
+ * 5. Reset the table-layout algorithm in case a component is nested.
+ */
+
+.Arrange {
+  box-sizing: border-box; /* 1 */
+  display: table; /* 2 */
+  margin: 0; /* 3 */
+  min-width: 100%; /* 4 */
+  padding: 0; /* 3 */
+  table-layout: auto; /* 5 */
+}
+
+/**
+ * There are three possible types of child. `sizeFill` will expand to fill all
+ * of the remaining space not filled by `sizeFit` elements. `row` will begin a
+ * new row context, keeping columns the same size.
+ *
+ * 1. Zero out any default spacing that might be on an element (e.g., `li`);
+ *    Margin has no effect when coupled with `display: table-cell`.
+ * 2. All cells are top-aligned by default
+ */
+
+.Arrange-sizeFill,
+.Arrange-sizeFit {
+  display: table-cell;
+  padding: 0; /* 1 */
+  vertical-align: top; /* 2 */
+}
+
+/**
+ * Make sure the main content block expands to fill the remaining space.
+ */
+
+.Arrange-sizeFill {
+  width: 100%;
+}
+
+/**
+ * Where possible, protect against large images breaking the layout. Prevent them from
+ * exceeding the width of the main content block by making them fluid.
+ *
+ * Only work for all browsers with the `Arrange--equally` variant. For Firefox
+ * and IE to constrain image dimensions for other layouts, large images will
+ * need their width set to `100%`.
+ */
+
+.Arrange-sizeFill img {
+  height: auto;
+  max-width: 100%;
+}
+
+/**
+ * Defend against a side-effect of this layout pattern: images in
+ * 'Arrange-sizeFit' cannot be fluid, otherwise they lose their ability to
+ * provide size to a cell.
+ */
+
+.Arrange-sizeFit img {
+  max-width: none !important;
+  width: auto !important;
+}
+
+/**
+ * Start a new row context.
+ */
+
+.Arrange-row {
+  display: table-row;
+}
+
+/* Vertical alignment modifiers
+   ========================================================================== */
+
+.Arrange--middle > .Arrange-sizeFill,
+.Arrange--middle > .Arrange-sizeFit {
+  vertical-align: middle;
+}
+
+.Arrange--bottom > .Arrange-sizeFill,
+.Arrange--bottom > .Arrange-sizeFit {
+  vertical-align: bottom;
+}
+
+/* Equal-width modifier
+   ========================================================================== */
+
+/**
+ * This layout algorithm will create equal-width table cells, irrespective of
+ * the width of their content.
+ *
+ * 1. The layout algorithm requires a set width to correctly calculate table
+ *    cell width.
+ */
+
+.Arrange--equal {
+  table-layout: fixed;
+  width: 100%; /* 1 */
+}
+
+/**
+ * Give the cells an equal width. This value ensures that Arrange is still 100%
+ * wide when gutters are used in conjunctions with equal-width cells.
+ *
+ * It's recommended that only 'Arrange-sizeFill' be used for equal width cells.
+ * Their inner images will automatically be responsive.
+ */
+
+.Arrange--equal > .Arrange-sizeFill,
+.Arrange--equal > .Arrange-sizeFit,
+.Arrange--equal > .Arrange-row > .Arrange-sizeFill,
+.Arrange--equal > .Arrange-row > .Arrange-sizeFit {
+  width: 1%;
+}
+
+/* Gutter modifier
+   ========================================================================== */
+
+/**
+ * Add a gutter between cells
+ *
+ * NOTE: this can trigger a horizontal scrollbar if the component is as wide as
+ * the viewport. Use padding on a container, or `overflow-x:hidden` to protect
+ * against it.
+ */
+
+.Arrange--withGutter {
+  margin: 0 -5px;
+}
+
+.Arrange--withGutter > .Arrange-sizeFit,
+.Arrange--withGutter > .Arrange-sizeFill,
+.Arrange--withGutter > .Arrange-row > .Arrange-sizeFit,
+.Arrange--withGutter > .Arrange-row > .Arrange-sizeFill {
+  padding: 0 5px;
+}
+
+/** @define Button */
+
+/**
+ * The button classes are best applied to links and buttons.
+ * These components can be used in forms, as calls to action, or as part of the
+ * general UI of the site/app.
+ */
+
+/**
+ * 1. Normalize `box-sizing` across all elements that this component could be
+ *    applied to.
+ * 2. Inherit text color from ancestor.
+ * 3. Inherit font styles from ancestor.
+ * 4. Prevent button text from being selectable.
+ */
+
+.Button {
+  background: transparent;
+  border-color: currentcolor;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  cursor: pointer;
+  display: inline-block;
+  font: inherit; /* 3 */
+  margin: 0;
+  padding: 0.4em 0.75em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; /* 4 */
+}
+
+/**
+ * Remove excess padding and border in Firefox 4+
+ */
+
+.Button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+.Button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/**
+ * UI states
+ */
+
+.Button:hover,
+.Button:focus,
+.Button:active {
+  text-decoration: none;
+}
+
+.Button:disabled,
+.Button.is-disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/** @define FlexEmbed */
+
+/**
+ * Flexible media embeds
+ *
+ * For use with media embeds – such as videos, slideshows, or even images –
+ * that need to retain a specific aspect ratio but adapt to the width of their
+ * containing element.
+ *
+ * Based on: http://alistapart.com/article/creating-intrinsic-ratios-for-video
+ */
+
+.FlexEmbed {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+/**
+ * The aspect-ratio hack is applied to an empty element because it allows
+ * the component to respect `max-height`. Default aspect ratio is 1:1.
+ */
+
+.FlexEmbed-ratio {
+  display: block;
+  padding-bottom: 100%;
+  width: 100%;
+}
+
+/**
+ * Modifier: 3:1 aspect ratio
+ */
+
+.FlexEmbed-ratio--3by1 {
+  padding-bottom: 33.33333%;
+}
+
+/**
+ * Modifier: 2:1 aspect ratio
+ */
+
+.FlexEmbed-ratio--2by1 {
+  padding-bottom: 50%;
+}
+
+/**
+ * Modifier: 16:9 aspect ratio
+ */
+
+.FlexEmbed-ratio--16by9 {
+  padding-bottom: 56.25%;
+}
+
+/**
+ * Modifier: 4:3 aspect ratio
+ */
+
+.FlexEmbed-ratio--4by3 {
+  padding-bottom: 75%;
+}
+
+/**
+ * Fit the content to the aspect ratio
+ */
+
+.FlexEmbed-content {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/** @define Grid */
+
+/**
+ * Core grid component
+ *
+ * DO NOT apply dimension or offset utilities to the `Grid` element. All cell
+ * widths and offsets should be applied to child grid cells.
+ */
+
+/* Grid container
+   ========================================================================== */
+
+/**
+ * All content must be contained within child `Grid-cell` elements.
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ */
+
+.Grid {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; /* 1 */
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin: 0; /* 1 */
+  padding: 0; /* 1 */
+}
+
+/**
+ * Modifier: center align all grid cells
+ */
+
+.Grid--alignCenter {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/**
+ * Modifier: right align all grid cells
+ */
+
+.Grid--alignRight {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+/**
+ * Modifier: middle-align grid cells
+ */
+
+.Grid--alignMiddle {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center;
+}
+
+/**
+ * Modifier: bottom-align grid cells
+ */
+
+.Grid--alignBottom {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+              -ms-grid-row-align: flex-end;
+          align-items: flex-end;
+}
+
+/**
+ * Modifier: allow cells to equal distribute width
+ *
+ * 1. Provide all values to avoid IE10 bug with shorthand flex
+ *    http://git.io/vllC7
+ *
+ *    Use `0%` to avoid bug in IE10/11 with unitless flex basis
+ *    http://git.io/vllWx
+ */
+
+.Grid--fit > .Grid-cell {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 0%;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%; /* 1 */
+}
+
+/**
+ * Modifier: all cells match height of tallest cell in a row
+ */
+
+.Grid--equalHeight > .Grid-cell {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/**
+ * Modifier: gutters
+ */
+
+.Grid--withGutter {
+  margin: 0 -10px;
+}
+
+.Grid--withGutter > .Grid-cell {
+  padding: 0 10px;
+}
+
+/* Grid cell
+   ========================================================================== */
+
+/**
+ * No explicit width by default. Rely on combining `Grid-cell` with a dimension
+ * utility or a component class that extends 'Grid'.
+ *
+ * 1. Set flex items to full width by default
+ * 2. Fix issue where elements with overflow extend past the
+ *    `Grid-cell` container - https://git.io/vw5oF
+ */
+
+.Grid-cell {
+  box-sizing: inherit;
+  -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; /* 1 */
+  min-width: 0; /* 2 */
+}
+
+/**
+ * Modifier: horizontally center one unit
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `Grid` object.
+ */
+
+.Grid-cell--center {
+  margin: 0 auto;
+}
