@@ -4,6 +4,7 @@
 *.orig
 *.log
 *.rej
+*.styl
 *.swo
 *.swp
 *.vi
