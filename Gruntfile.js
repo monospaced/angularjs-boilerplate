@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           args: ['--exclude-from=.rsyncignore',],
-          deleteAll: true,
+          delete: true,
           dest: '~/webapps/' + app,
           host: 'mnspcd',
           recursive: true,
