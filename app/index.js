@@ -4,14 +4,18 @@ import router from 'angular-ui-router';
 import './assets/favicon.ico';
 import 'normalize.css';
 import './theme/app.css';
-import config from './app.config.js';
-import run from './app.run.js';
+import routes from './routes.js';
+import run from './run.js';
 
-import home from './components/Home';
+import nav from './components/Nav/Nav';
+import home from './components/Home/Home';
+import about from './components/About/About';
 
 angular.module('app', [
   router,
+  nav,
   home,
+  about,
 ])
-.config(config)
+.config(routes)
 .run(run);
