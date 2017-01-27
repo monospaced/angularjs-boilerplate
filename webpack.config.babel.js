@@ -10,8 +10,7 @@ let config = {
     filename: 'bundle.js',
     path: __dirname + '/build',
   },
-  debug: true,
-  devtool: '#inline-source-map',
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -24,7 +23,7 @@ let config = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css!postcss'),
+        loader: ExtractTextPlugin.extract('css?sourceMap!postcss'),
       },
       {
         test: /\.woff$/,
@@ -56,7 +55,6 @@ let config = {
 if (production) {
   config = {
     ...config,
-    debug: false,
     devtool: false,
     plugins: [
       ...config.plugins,
