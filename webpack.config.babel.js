@@ -15,12 +15,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: [
-            'es2015',
-          ],
-        },
+        loaders: ['ng-annotate', 'babel?presets[]=es2015'],
       },
       {
         test: /\.css$/,

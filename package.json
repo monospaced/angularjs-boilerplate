@@ -16,6 +16,7 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.26.0",
     "json-loader": "^0.5.4",
+    "ng-annotate-loader": "^0.2.0",
     "normalize.css": "^5.0.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.0.0",

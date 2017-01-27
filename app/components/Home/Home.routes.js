@@ -1,4 +1,5 @@
 export default ($stateProvider) => {
+  'ngInject';
   $stateProvider
   .state('app', {
     url: '/',

@@ -1,4 +1,5 @@
 export default ($locationProvider, $urlRouterProvider) => {
+  'ngInject';
   $locationProvider.html5Mode({
     enabled: true,
     hashPrefix: '!',

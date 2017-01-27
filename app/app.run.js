@@ -1,4 +1,5 @@
 export default ($anchorScroll, $location, $rootScope, $state, $timeout, $window) => {
+  'ngInject';
   const scrollState = {};
   const scrollOffset = 0;
   let popped = false;
