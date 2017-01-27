@@ -1,0 +1,80 @@
+@import url('./vars.css');
+
+@font-face {
+  font-family: 'theme-font';
+  src: url('./theme-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: theme-font, sans-serif;
+  line-height: 1.25;
+  box-sizing: border-box;
+  color: color(var(--background-color) contrast(0%));
+  background: var(--background-color);
+  text-rendering: optimizeLegibilty;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  transition: color .15s;
+  text-decoration: none;
+  color: var(--theme-color);
+  outline: 0;
+}
+
+a:visited {
+  color: color(var(--theme-color) hue(+30deg));
+}
+
+a:focus {
+  transition: none;
+  color: color(var(--theme-color) lightness(-30%));
+}
+
+a:hover {
+  transition: none;
+  color: color(var(--theme-color) lightness(-30%));
+}
+
+a:active {
+  transition: none;
+  color: color(var(--theme-color) hue(+120deg));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--english);
+  font-weight: normal;
+  color: color(var(--background-color) contrast(100%));
+}
+
+b,
+strong,
+th {
+  font-weight: normal;
+  color: color(var(--background-color) contrast(100%));
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: theme-font, sans-serif;
+  line-height: 1.25;
+}
+
+.Main {
+  margin: 1.25rem;
+}

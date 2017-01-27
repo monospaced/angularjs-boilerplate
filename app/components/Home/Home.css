@@ -1,0 +1,5 @@
+@import url('../../theme/vars.css');
+
+h1 {
+  color: var(--theme-color);
+}
