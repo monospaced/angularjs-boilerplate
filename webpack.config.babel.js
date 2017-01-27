@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const production = process.env.NODE_ENV === 'production';
 
-let config = {
+const config = {
   entry: './app',
   output: {
     filename: 'bundle.js',
@@ -53,21 +53,18 @@ let config = {
 };
 
 if (production) {
-  config = {
-    ...config,
-    devtool: false,
-    plugins: [
-      ...config.plugins,
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-        },
-        output: {
-          comments: false,
-        },
-      }),
-    ],
-  };
+  config.plugins = [
+    ...config.plugins,
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      output: {
+        comments: false,
+      },
+    }),
+  ];
+  config.devtool = false;
 }
 
 module.exports = config;
