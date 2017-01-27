@@ -4,18 +4,23 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const production = process.env.NODE_ENV === 'production';
 
-const config = {
+let config = {
   entry: './app',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/build',
   },
+  debug: true,
+  devtool: '#inline-source-map',
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['ng-annotate', 'babel?presets[]=es2015'],
+        loaders: [
+          'ng-annotate',
+          'babel?presets[]=es2015',
+        ],
       },
       {
         test: /\.css$/,
@@ -49,17 +54,22 @@ const config = {
 };
 
 if (production) {
-  config.plugins = [
-    ...config.plugins,
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-    }),
-  ];
+  config = {
+    ...config,
+    debug: false,
+    devtool: false,
+    plugins: [
+      ...config.plugins,
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false,
+        },
+        output: {
+          comments: false,
+        },
+      }),
+    ],
+  };
 }
 
 module.exports = config;
