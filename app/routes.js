@@ -1,3 +1,5 @@
+import data from './data.js';
+
 export default ($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider) => {
   'ngInject';
 
@@ -9,17 +11,25 @@ export default ($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $
 
   $stateProvider
   .state('app', {
-    url: '/',
-    views: {
-      'main': 'home',
-      'nav': 'nav',
+    absract: true,
+    resolve: {
+      props: () => data,
     },
   })
-  .state('about', {
+  .state('Home', {
+    parent: 'app',
+    url: '/',
+    views: {
+      '@': 'home',
+      'banner@': 'navigation',
+    },
+  })
+  .state('About', {
+    parent: 'app',
     url: '/about',
     views: {
-      'main': 'about',
-      'nav': 'nav',
+      '@': 'about',
+      'banner@': 'navigation',
     },
   });
 };

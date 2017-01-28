@@ -1,14 +1,13 @@
 import { module } from 'angular';
+import '../main/main.css';
 
 const about = {
-  template: `
-    <section class="About">{{$ctrl.about}}</section>
-  `,
-  controller: class AboutComponent {
-    constructor() {
-      this.about = 'About';
-    }
+  bindings: {
+    props: '<',
   },
+  template: `
+    <main class="Main">{{$ctrl.props.about}}</main>
+  `,
 };
 
 export default module('app.about', []).component('about', about).name;

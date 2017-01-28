@@ -2,11 +2,11 @@
 <html ng-app="app" lang="en-gb">
 <head>
   <meta charset="utf-8">
-  <title>Mnspcd Angular 1 Boilerplate</title>
+  <title><%= htmlWebpackPlugin.options.title %></title>
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
-  <nav class="Nav" ui-view="nav"></nav>
-  <main class="Main" ui-view="main"></main>
+  <div ui-view="banner"></div>
+  <div ui-view></div>
 </body>
 </html>

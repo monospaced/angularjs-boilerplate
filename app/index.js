@@ -5,14 +5,14 @@ import 'normalize.css';
 import './theme/app.css';
 import routes from './routes.js';
 import scrollBehaviour from './services/scrollBehaviour.js';
-import nav from './components/Nav/Nav';
-import home from './components/Home/Home';
-import about from './components/About/About';
+import navigation from './components/navigation/navigation';
+import home from './components/home/home';
+import about from './components/about/about';
 
 angular.module('app', [
   router,
   scrollBehaviour,
-  nav,
+  navigation,
   home,
   about,
 ])

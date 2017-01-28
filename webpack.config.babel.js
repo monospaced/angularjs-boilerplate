@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import data from './app/data.js';
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -41,6 +42,7 @@ const config = {
       },
       {
         test: /\.html$/,
+        exclude: /assets/,
         loader: 'raw',
       },
     ],
@@ -48,7 +50,8 @@ const config = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
-      template: './app/assets/index.html',
+      template: './app/assets/index.ejs',
+      title: data.title,
     }),
   ],
 };
