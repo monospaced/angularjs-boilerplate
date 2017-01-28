@@ -6,7 +6,9 @@ const home = {
     props: '<',
   },
   template: `
-    <main class="Main">{{$ctrl.props.title}}</main>
+    <main class="Main">
+      <section class="Section" content="$ctrl.props.title"></section>
+    </main>
   `,
 };
 

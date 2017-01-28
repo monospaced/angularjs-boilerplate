@@ -8,6 +8,7 @@ import scrollBehaviour from './services/scrollBehaviour.js';
 import navigation from './components/navigation/navigation';
 import home from './components/home/home';
 import about from './components/about/about';
+import section from './components/section/section';
 
 angular.module('app', [
   router,
@@ -15,6 +16,7 @@ angular.module('app', [
   navigation,
   home,
   about,
+  section,
 ])
 .config(routes)
 .run(runBlock);
