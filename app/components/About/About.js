@@ -1,16 +1,14 @@
 import { module } from 'angular';
 
-class ComponentController {
-  constructor() {
-    this.about = 'About';
-  }
-}
-
-const options = {
-  controller: ComponentController,
+const about = {
   template: `
     <section class="About">{{$ctrl.about}}</section>
   `,
+  controller: class AboutComponent {
+    constructor() {
+      this.about = 'About';
+    }
+  },
 };
 
-export default module('app.about', []).component('about', options).name;
+export default module('app.about', []).component('about', about).name;

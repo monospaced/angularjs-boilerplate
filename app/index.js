@@ -11,8 +11,11 @@ import nav from './components/Nav/Nav';
 import home from './components/Home/Home';
 import about from './components/About/About';
 
+import scrollBehaviour from './services/scrollBehaviour.js';
+
 angular.module('app', [
   router,
+  scrollBehaviour,
   nav,
   home,
   about,

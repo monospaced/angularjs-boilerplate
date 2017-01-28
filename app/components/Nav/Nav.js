@@ -1,16 +1,12 @@
 import { module } from 'angular';
 
-class ComponentController {
-  constructor() {
-    this.title = 'Mnspcd Angular 1 Boilerplate';
-  }
-}
-
-const options = {
-  controller: ComponentController,
+const nav = {
   template: `
     <a href="/">Home</a> | <a href="/about">About</a>
   `,
+  controller: class NavComponent {
+    constructor() {}
+  },
 };
 
-export default module('app.nav', []).component('nav', options).name;
+export default module('app.nav', []).component('nav', nav).name;
