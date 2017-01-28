@@ -1,17 +1,13 @@
 import angular from 'angular';
 import router from 'angular-ui-router';
-//import './assets/.htaccess';
 import './assets/favicon.ico';
 import 'normalize.css';
 import './theme/app.css';
 import routes from './routes.js';
-import run from './run.js';
-
+import scrollBehaviour from './services/scrollBehaviour.js';
 import nav from './components/Nav/Nav';
 import home from './components/Home/Home';
 import about from './components/About/About';
-
-import scrollBehaviour from './services/scrollBehaviour.js';
 
 angular.module('app', [
   router,
@@ -21,4 +17,12 @@ angular.module('app', [
   about,
 ])
 .config(routes)
-.run(run);
+.run(runBlock);
+
+function runBlock($transitions, scrollBehaviour) {
+  'ngInject';
+  $transitions.onStart({}, function(trans) {
+    scrollBehaviour.saveState = false;
+    trans.promise.finally(scrollBehaviour.updateScroll);
+  });
+}
