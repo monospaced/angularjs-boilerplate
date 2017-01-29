@@ -1,6 +1,6 @@
 {
   "name": "mnspd-angular-1-boilerplate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
     "angular": "^1.6.1",
