@@ -3,8 +3,8 @@ import router from 'angular-ui-router';
 import 'normalize.css';
 import './theme/app.css';
 import './assets/favicon.ico';
-import routes from './routes.js';
-import scrollBehaviour from './services/scrollBehaviour.js';
+import routes from './routes';
+import scrollBehaviour from './services/scrollBehaviour';
 import nav from './components/nav/nav';
 import home from './components/home/home';
 import about from './components/about/about';
@@ -23,8 +23,8 @@ angular.module('app', [
 
 function runBlock($transitions, scrollBehaviour) {
   'ngInject';
-  $transitions.onStart({}, function(trans) {
+  $transitions.onStart({}, (transition) => {
     scrollBehaviour.saveState = false;
-    trans.promise.finally(scrollBehaviour.updateScroll);
+    transition.promise.finally(scrollBehaviour.updateScroll);
   });
 }
