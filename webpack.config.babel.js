@@ -42,7 +42,6 @@ const config = {
       },
       {
         test: /\.html$/,
-        exclude: /assets/,
         loader: 'raw',
       },
     ],
