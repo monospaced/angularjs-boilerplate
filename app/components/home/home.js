@@ -1,5 +1,6 @@
 import { module } from 'angular';
 import '../main/main.css';
+import section from '../section/section';
 
 const home = {
   bindings: {
@@ -12,4 +13,6 @@ const home = {
   `,
 };
 
-export default module('app.home', []).component('home', home).name;
+export default module('app.home', [
+  section,
+]).component('home', home).name;

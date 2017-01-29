@@ -1,13 +1,18 @@
 import { module } from 'angular';
 import '../main/main.css';
+import section from '../section/section';
 
 const about = {
   bindings: {
     props: '<',
   },
   template: `
-    <main class="Main">{{$ctrl.props.about}}</main>
+    <main class="Main">
+      <section class="Section" content="$ctrl.props.about"></section>
+    </main>
   `,
 };
 
-export default module('app.about', []).component('about', about).name;
+export default module('app.about', [
+  section,
+]).component('about', about).name;
