@@ -11,7 +11,7 @@ export default ($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $
 
   $stateProvider
   .state('app', {
-    absract: true,
+    abstract: true,
     resolve: {
       props: () => data,
     },
@@ -21,7 +21,6 @@ export default ($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $
     url: '/',
     views: {
       '@': 'home',
-      'banner@': 'navigation',
     },
   })
   .state('About', {
@@ -29,7 +28,6 @@ export default ($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $
     url: '/about',
     views: {
       '@': 'about',
-      'banner@': 'navigation',
     },
   });
 };

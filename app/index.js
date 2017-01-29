@@ -5,7 +5,7 @@ import 'normalize.css';
 import './theme/app.css';
 import routes from './routes.js';
 import scrollBehaviour from './services/scrollBehaviour.js';
-import navigation from './components/navigation/navigation';
+import nav from './components/nav/nav';
 import home from './components/home/home';
 import about from './components/about/about';
 import section from './components/section/section';
@@ -13,7 +13,7 @@ import section from './components/section/section';
 angular.module('app', [
   router,
   scrollBehaviour,
-  navigation,
+  nav,
   home,
   about,
   section,

@@ -50,7 +50,7 @@ const config = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
-      template: './app/assets/index.ejs',
+      template: './app/index.ejs',
       title: data.title,
     }),
   ],
