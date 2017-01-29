@@ -1,0 +1,16 @@
+:root {
+  --triple-canon: 7.451rem;
+  --double-canon: 4.768rem;
+  --canon: 3.814rem;
+  --double-great-primer: 3.052rem;
+  --double-english: 2.441rem;
+  --double-pica: 1.953rem;
+  --great-primer: 1.563rem;
+  --english: 1.25rem;
+  --pica: 1rem;
+  --long-primer: 0.8rem;
+  --brevier: 0.64rem;
+
+  --background-color: white;
+  --theme-color: hotpink;
+}
