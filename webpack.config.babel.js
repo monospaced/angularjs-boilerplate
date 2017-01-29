@@ -51,6 +51,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: './app/index.ejs',
       title: data.title,
+      hash: true,
     }),
   ],
 };
