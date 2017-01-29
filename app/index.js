@@ -1,8 +1,8 @@
 import angular from 'angular';
 import router from 'angular-ui-router';
-import './assets/favicon.ico';
 import 'normalize.css';
 import './theme/app.css';
+import './assets/favicon.ico';
 import routes from './routes.js';
 import scrollBehaviour from './services/scrollBehaviour.js';
 import nav from './components/nav/nav';
