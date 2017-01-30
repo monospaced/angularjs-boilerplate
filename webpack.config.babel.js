@@ -31,13 +31,16 @@ const config = {
         test: /\.woff$/,
         loader: 'url?mimetype=application/font-woff',
       },
-      { test: /\.png$/,
+      {
+        test: /\.png$/,
         loader: 'file?name=/assets/[name].[ext]',
       },
-      { test: /\.(ico|htaccess)$/,
+      {
+        test: /\.(ico|htaccess)$/,
         loader: 'file?name=/[name].[ext]',
       },
-      { test: /\.json$/,
+      {
+        test: /\.json$/,
         loader: 'json',
       },
       {
