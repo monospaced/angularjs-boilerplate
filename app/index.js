@@ -1,20 +1,14 @@
+import './assets/favicon.ico';
 import angular from 'angular';
 import router from 'angular-ui-router';
-import 'normalize.css';
-import './theme/app.css';
-import './assets/favicon.ico';
 import routes from './routes';
 import scrollBehaviour from './services/scrollBehaviour';
-import nav from './components/nav/nav';
-import home from './components/home/home';
-import about from './components/about/about';
+import app from './components/app/app';
 
-angular.module('app', [
+angular.module('mnspcd', [
   router,
   scrollBehaviour,
-  nav,
-  home,
-  about,
+  app,
 ])
 .config(routes)
 .run(runBlock);

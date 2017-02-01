@@ -9,4 +9,4 @@ const section = {
   `,
 };
 
-export default module('app.section', []).component('section', section).name;
+export default module('mnspcd.section', []).component('section', section).name;

@@ -13,6 +13,6 @@ const about = {
   `,
 };
 
-export default module('app.about', [
+export default module('mnspcd.about', [
   section,
 ]).component('about', about).name;

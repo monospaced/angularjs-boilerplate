@@ -13,6 +13,6 @@ const home = {
   `,
 };
 
-export default module('app.home', [
+export default module('mnspcd.home', [
   section,
 ]).component('home', home).name;

@@ -19,4 +19,4 @@ const nav = {
   },
 };
 
-export default module('app.nav', []).component('nav', nav).name;
+export default module('mnspcd.nav', []).component('nav', nav).name;
