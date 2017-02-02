@@ -19,10 +19,10 @@ function routes($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $
   $urlMatcherFactoryProvider.strictMode(false);
   $urlRouterProvider.otherwise('/');
   $stateProvider
-  .state('app', {
-    abstract: true,
-    resolve: {
-      props: () => require('./app.data.js'),
-    },
-  });
+    .state('app', {
+      abstract: true,
+      resolve: {
+        props: () => require('./app.data.js'),
+      },
+    });
 }

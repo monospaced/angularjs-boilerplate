@@ -7,12 +7,12 @@ export const AboutModule = angular
   .config(($stateProvider) => {
     'ngInject';
     $stateProvider
-    .state('About', {
-      parent: 'app',
-      url: '/about',
-      views: {
-        '@': 'about',
-      },
-    });
+      .state('About', {
+        parent: 'app',
+        url: '/about',
+        views: {
+          '@': 'about',
+        },
+      });
   })
   .name;

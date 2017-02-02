@@ -7,12 +7,12 @@ export const HomeModule = angular
   .config(($stateProvider) => {
     'ngInject';
     $stateProvider
-    .state('Home', {
-      parent: 'app',
-      url: '/',
-      views: {
-        '@': 'home',
-      },
-    });
+      .state('Home', {
+        parent: 'app',
+        url: '/',
+        views: {
+          '@': 'home',
+        },
+      });
   })
   .name;
