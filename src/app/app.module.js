@@ -10,19 +10,20 @@ export const AppModule = angular
     ComponentsModule,
   ])
   .component('app', AppComponent)
-  .config(routes)
-  .name;
-
-function routes($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider) {
-  'ngInject';
-  $locationProvider.html5Mode({ enabled: true, requireBase: false });
-  $urlMatcherFactoryProvider.strictMode(false);
-  $urlRouterProvider.otherwise('/');
-  $stateProvider
-    .state('app', {
-      abstract: true,
-      resolve: {
-        props: () => require('./app.data.js'),
-      },
+  .config(($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider) => {
+    'ngInject';
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false,
     });
-}
+    $urlMatcherFactoryProvider.strictMode(false);
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
+      .state('app', {
+        abstract: true,
+        resolve: {
+          props: () => require('./app.data.js'),
+        },
+      });
+  })
+  .name;
