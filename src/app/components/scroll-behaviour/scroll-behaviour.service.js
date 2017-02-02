@@ -1,6 +1,4 @@
-import { module } from 'angular';
-
-class ScrollBehaviour {
+export class ScrollBehaviourService {
   constructor($location, $timeout, $window) {
     'ngInject';
     this.$location = $location;
@@ -28,5 +26,3 @@ class ScrollBehaviour {
     });
   }
 }
-
-export default module('scroll-behaviour', []).service('scrollBehaviour', ScrollBehaviour).name;

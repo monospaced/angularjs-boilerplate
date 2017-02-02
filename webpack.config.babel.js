@@ -1,12 +1,12 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import data from './app/data.js';
+import data from './src/app/app.data.js';
 
 const production = process.env.NODE_ENV === 'production';
 
 const config = {
-  entry: './app',
+  entry: './src/app/app.module.js',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/build',
@@ -52,7 +52,7 @@ const config = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
-      template: './app/index.ejs',
+      template: './src/index.ejs',
       title: data.title,
       hash: true,
     }),

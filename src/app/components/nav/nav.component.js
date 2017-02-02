@@ -1,7 +1,6 @@
-import { module } from 'angular';
 import './nav.css';
 
-const nav = {
+export const NavComponent = {
   template: `
     <ul>
       <li ng-repeat="route in $ctrl.routes">
@@ -18,5 +17,3 @@ const nav = {
     }
   },
 };
-
-export default module('mnspcd.nav', []).component('nav', nav).name;

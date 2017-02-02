@@ -1,8 +1,6 @@
-import { module } from 'angular';
 import '../main/main.css';
-import section from '../section/section';
 
-const home = {
+export const HomeComponent = {
   bindings: {
     props: '<',
   },
@@ -12,7 +10,3 @@ const home = {
     </main>
   `,
 };
-
-export default module('mnspcd.home', [
-  section,
-]).component('home', home).name;

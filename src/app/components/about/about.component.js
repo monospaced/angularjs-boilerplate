@@ -1,8 +1,6 @@
-import { module } from 'angular';
 import '../main/main.css';
-import section from '../section/section';
 
-const about = {
+export const AboutComponent = {
   bindings: {
     props: '<',
   },
@@ -12,7 +10,3 @@ const about = {
     </main>
   `,
 };
-
-export default module('mnspcd.about', [
-  section,
-]).component('about', about).name;
