@@ -10,9 +10,7 @@ export const HomeModule = angular
       .state('Home', {
         parent: 'app',
         url: '/',
-        views: {
-          '@': 'home',
-        },
+        views: { '@': 'home' },
       });
   })
   .name;

@@ -10,9 +10,7 @@ export const AboutModule = angular
       .state('About', {
         parent: 'app',
         url: '/about',
-        views: {
-          '@': 'about',
-        },
+        views: { '@': 'about' },
       });
   })
   .name;

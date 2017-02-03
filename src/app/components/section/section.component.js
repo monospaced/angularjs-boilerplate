@@ -1,7 +1,5 @@
 export const SectionComponent = {
-  bindings: {
-    content: '<',
-  },
+  bindings: { content: '<' },
   template: `
     {{$ctrl.content}}
   `,
