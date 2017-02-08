@@ -40,10 +40,6 @@ const config = {
         loader: 'file?name=/[name].[ext]',
       },
       {
-        test: /\.json$/,
-        loader: 'json',
-      },
-      {
         test: /\.html$/,
         loader: 'raw',
       },
