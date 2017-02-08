@@ -1,8 +1,9 @@
 import angular from 'angular';
+import uiRouter from 'angular-ui-router';
 import { AboutComponent } from './about.component';
 
 export const AboutModule = angular
-  .module('about', [])
+  .module('about', [ uiRouter ])
   .component('about', AboutComponent)
   .config(($stateProvider) => {
     'ngInject';

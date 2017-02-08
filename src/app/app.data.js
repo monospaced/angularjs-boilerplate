@@ -1,4 +1,4 @@
 module.exports = {
-  title: 'Mnspcd Angular 1 Boilerplate',
+  title: 'Mnspcd AngularJS Boilerplate',
   about: 'About',
 };

@@ -3,19 +3,19 @@ import './app.css';
 
 export const AppComponent = {
   template: `
-    <nav class="Nav"></nav>
-    <div data-ui-view></div>
+    <nav></nav>
+    <ui-view></ui-view>
   `,
   controller: class AppComponent {
     constructor($transitions, ScrollBehaviour) {
       'ngInject';
       this.$transitions = $transitions;
-      this.ScrollBehaviour = ScrollBehaviour;
+      this.scrollBehaviour = ScrollBehaviour;
     }
     $onInit() {
       this.$transitions.onStart({}, (transition) => {
-        this.ScrollBehaviour.saveState = false;
-        transition.promise.finally(this.ScrollBehaviour.updateScroll);
+        this.scrollBehaviour.saveState = false;
+        transition.promise.finally(this.scrollBehaviour.updateScroll);
       });
     }
   },

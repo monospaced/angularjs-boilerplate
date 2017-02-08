@@ -2,7 +2,7 @@ import './nav.css';
 
 export const NavComponent = {
   template: `
-    <ul>
+    <ul class="Nav">
       <li ng-repeat="route in $ctrl.routes">
         <a href="{{route.url}}">{{route.name}}</a>
       </li>
