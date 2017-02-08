@@ -2,6 +2,7 @@ import '../assets/favicon.ico';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import { AppComponent } from './app.component';
+import { AppScroll } from './app-scroll.directive';
 import { ComponentsModule } from './components/components.module';
 
 export const AppModule = angular
@@ -10,6 +11,7 @@ export const AppModule = angular
     ComponentsModule,
   ])
   .component('app', AppComponent)
+  .directive('appScroll', AppScroll)
   .config(($locationProvider, $stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider) => {
     'ngInject';
     $locationProvider.html5Mode({
