@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import props from './src/app/app.json';
+import props from './src/assets/props.json';
 
 const production = process.env.NODE_ENV === 'production';
 

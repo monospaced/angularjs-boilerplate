@@ -6,7 +6,7 @@ const fetchApp = () => {
       types: FETCH_APP,
       config: {
         method: 'get',
-        url: '/app.json',
+        url: '/props.json',
       },
     },
   };
