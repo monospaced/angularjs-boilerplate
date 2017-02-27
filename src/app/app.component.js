@@ -7,10 +7,10 @@ export const AppComponent = {
     <main ui-view props="$ctrl.props"></main>
   `,
   controller: class AppComponent {
-    constructor($ngRedux, appActions) {
+    constructor($ngRedux, AppActions) {
       'ngInject';
       this.$ngRedux = $ngRedux;
-      this.fetchApp = appActions.fetchApp;
+      this.fetchApp = AppActions.fetchApp;
     }
 
     $onInit() {

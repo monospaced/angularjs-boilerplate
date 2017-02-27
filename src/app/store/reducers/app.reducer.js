@@ -1,6 +1,6 @@
 import { INITIAL_STATE, FETCH_APP } from '../constants';
 
-export const app = (state = INITIAL_STATE, action) => {
+export const AppReducer = (state = INITIAL_STATE, action) => {
   if (!action || !action.type) { return state; }
   switch (action.type) {
     case FETCH_APP[0]:

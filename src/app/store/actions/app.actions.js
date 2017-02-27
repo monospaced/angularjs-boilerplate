@@ -12,4 +12,4 @@ const fetchApp = () => {
   };
 };
 
-export const appActions = { fetchApp };
+export const AppActions = { fetchApp };

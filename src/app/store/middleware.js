@@ -1,7 +1,7 @@
 import angular from 'angular';
 import { API_REQUEST } from './constants';
 
-export const apiMiddleware = ($http) => {
+export const ApiMiddleware = ($http) => {
   'ngInject';
   return store => next => action => {
     if (!action[API_REQUEST]) { return next(action); }
