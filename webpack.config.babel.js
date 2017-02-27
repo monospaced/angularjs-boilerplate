@@ -32,20 +32,16 @@ const config = {
         loader: 'url?mimetype=application/font-woff',
       },
       {
-        test: /\.png$/,
+        test: /\.(png|jpg)$/,
         loader: 'file?name=/assets/[name].[ext]',
       },
       {
-        test: /\.(ico|htaccess)$/,
+        test: /\.(ico|json|htaccess)$/,
         loader: 'file?name=/[name].[ext]',
       },
       {
         test: /\.html$/,
         loader: 'raw',
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
       },
     ],
   },

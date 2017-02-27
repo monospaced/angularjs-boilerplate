@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-export const AppScroll = ($location, $timeout, $transitions, $window) => {
+export const appScroll = ($location, $timeout, $transitions, $window) => {
   'ngInject';
   return {
     restrict: 'A',

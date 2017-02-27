@@ -5,7 +5,7 @@ import { HomeComponent } from './home.component';
 export const HomeModule = angular
   .module('home', [ uiRouter ])
   .component('home', HomeComponent)
-  .config(($stateProvider) => {
+  .config($stateProvider => {
     'ngInject';
     $stateProvider
       .state('Home', {
