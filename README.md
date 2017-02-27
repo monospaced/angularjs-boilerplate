@@ -2,7 +2,7 @@
 Mnspd AngularJS Boilerplate
 ===========================
 
-Minimal starter project for AngularJS 1.6, with UI-Router 1.0, ES2015, PostCSS and Webpack.
+Minimal starter project for AngularJS 1.6, with UI-Router 1.0, Ng-Redux, ES2015, PostCSS and Webpack.
 
 Follows [AngularJS styleguide (ES2015)](https://github.com/toddmotto/angular-styleguide).
 
@@ -13,7 +13,7 @@ Dependencies
 
 git | node 5.12 | npm
 
-yarn `npm intall -g yarn`
+yarn `brew install yarn`
 
 Install
 -------
