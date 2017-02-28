@@ -1,4 +1,5 @@
-import { API_REQUEST, FETCH_APP } from '../constants';
+import { API_REQUEST } from './middleware';
+import { FETCH_APP } from './app.reducer';
 
 const fetchApp = () => {
   return {
