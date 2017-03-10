@@ -3,8 +3,8 @@ import '../assets/favicon.ico';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
-import { apiMiddleware } from './middleware'
-import { appReducer } from './app.reducer'
+import { apiMiddleware } from './middleware';
+import { appReducer } from './app.reducer';
 import { appScroll } from './app-scroll.directive';
 import { AppActions } from './app.actions';
 import { AppComponent } from './app.component';
@@ -22,7 +22,7 @@ export const AppModule = angular
   .component('app', AppComponent)
   .config($ngReduxProvider => {
     'ngInject';
-    $ngReduxProvider.createStoreWith(appReducer, [ 'apiMiddleware' ])
+    $ngReduxProvider.createStoreWith(appReducer, [ 'apiMiddleware' ]);
   })
   .config($locationProvider => {
     'ngInject';
