@@ -22,7 +22,9 @@ export const AppModule = angular
   .component('app', AppComponent)
   .config($ngReduxProvider => {
     'ngInject';
-    $ngReduxProvider.createStoreWith(appReducer, ['apiMiddleware']);
+    const devtools = window.__REDUX_DEVTOOLS_EXTENSION__;
+    const storeEnhancer = typeof devtools === 'function' ? [devtools()] : [];
+    $ngReduxProvider.createStoreWith(appReducer, ['apiMiddleware'], storeEnhancer);
   })
   .config($locationProvider => {
     'ngInject';
