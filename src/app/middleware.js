@@ -10,6 +10,7 @@ export const apiMiddleware = ($http) => {
     }
     const {
       config,
+      meta,
       types: [
         requestType,
         successType,
@@ -23,6 +24,7 @@ export const apiMiddleware = ($http) => {
         type: successType,
         payload: response.data,
         receivedAt: Date.now(),
+        meta,
       });
       return response;
     })
@@ -32,6 +34,7 @@ export const apiMiddleware = ($http) => {
         type: errorType,
         payload: response.data,
         error: true,
+        meta,
       });
       return response;
     });
