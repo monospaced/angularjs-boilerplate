@@ -10,12 +10,10 @@ export const AppComponent = {
     constructor($ngRedux, AppActions) {
       'ngInject';
       this.$ngRedux = $ngRedux;
-      this.fetchApp = AppActions.fetchApp;
     }
 
     $onInit() {
       this.disconnect = this.$ngRedux.connect(this.mapState)(this);
-      this.$ngRedux.dispatch(this.fetchApp());
     }
 
     $onDestroy() {

@@ -34,6 +34,20 @@ export const AppModule = angular
     'ngInject';
     $urlMatcherFactoryProvider.strictMode(false);
     $urlRouterProvider.otherwise('/');
-    $stateProvider.state('app', { abstract: true });
+    $stateProvider.state('app', {
+      abstract: true,
+      resolvePolicy: {
+        async: 'NOWAIT',
+        when: 'EAGER',
+      },
+      resolve: {
+        init: $ngRedux => {
+          'ngInject';
+          return $ngRedux
+          .dispatch(AppActions.fetchApp())
+          .then(res => res);
+        },
+      },
+    });
   })
   .name;
