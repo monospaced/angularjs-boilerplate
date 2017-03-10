@@ -22,7 +22,7 @@ export const AppModule = angular
   .component('app', AppComponent)
   .config($ngReduxProvider => {
     'ngInject';
-    $ngReduxProvider.createStoreWith(appReducer, [ 'apiMiddleware' ]);
+    $ngReduxProvider.createStoreWith(appReducer, ['apiMiddleware']);
   })
   .config($locationProvider => {
     'ngInject';
@@ -30,8 +30,8 @@ export const AppModule = angular
   })
   .config(($stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider) => {
     'ngInject';
-    $stateProvider.state('app', { abstract: true });
     $urlMatcherFactoryProvider.strictMode(false);
     $urlRouterProvider.otherwise('/');
+    $stateProvider.state('app', { abstract: true });
   })
   .name;
