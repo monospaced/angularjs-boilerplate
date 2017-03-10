@@ -15,13 +15,14 @@ export const apiMiddleware = ($http) => {
       ],
     } = action[API_REQUEST];
     next({ type: requestType });
-    $http(config)
+    return $http(config)
       .then(response => {
         next({
           type: successType,
           payload: response.data,
           receivedAt: Date.now(),
         });
+        return response;
       })
       .catch(response => {
         console.error(new Error(response.data, response));
@@ -30,6 +31,7 @@ export const apiMiddleware = ($http) => {
           payload: response.data,
           error: true,
         });
+        return response;
       });
   };
 };
