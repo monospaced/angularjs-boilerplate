@@ -1,6 +1,10 @@
 
-Mnspd AngularJS Boilerplate
+[DEPRECATED] Mnspd AngularJS Boilerplate
 ===========================
+
+**Since [AngularJS support has been discontinued](https://blog.angular.io/discontinued-long-term-support-for-angularjs-cc066b82e65a) this package is deprecated and no longer maintained.**
+
+---
 
 Minimal starter project for AngularJS 1.6, with UI-Router 1.0, Ng-Redux, ES2015, PostCSS and Webpack.
 
